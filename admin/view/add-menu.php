@@ -6,8 +6,9 @@
             <div style="padding-bottom: 10px; max-width: 400px;">
                 <input type="text" name="menu_title" value="<?= post('menu_title')?>" placeholder="Menyu Başlığı">
             </div>
-            <ul id="menu">
+            <ul id="menu" class="menu">
                 <li>
+                    <div class="handle"><i class="fa fa-arrows-alt"></i></div>
                     <div class="menu-item">
                         <a href="#" class="delete-menu">
                             <i class="fa fa-times"></i>
@@ -15,7 +16,7 @@
                         <input type="text" name="title[]" placeholder="Menyu Adı">
                         <input type="text" name="url[]" placeholder="Menyu Linki">
                     </div>
-                    <div class="sub-menu"><ul></ul></div>
+                    <div class="sub-menu"><ul class="menu"></ul></div>
                     <a href="#" class="btn add-submenu">Alt Menyu Əlavə Et</a>
                 </li>
             </ul>
@@ -31,7 +32,7 @@
 
             $('#add-menu').on('click', function (e) {
                 $('#menu').append('<li>\n' +
-                    '                    <div class="menu-item">\n' +
+                    '                    <div class="handle"><i class="fa fa-arrows-alt"></i></div><div class="menu-item">\n' +
                     '                        <a href="#" class="delete-menu">\n' +
                     '                            <i class="fa fa-times"></i>\n' +
                     '                        </a>\n' +
@@ -47,7 +48,7 @@
             $(document.body).on('click', '.add-submenu', function (e){
                 var index = $(this).closest('li').index();
                     $(this).prev('.sub-menu').find('ul').append('<li>\n' +
-                        '                                <div class="menu-item">\n' +
+                        '                                <div class="handle"><i class="fa fa-arrows-alt"></i></div><div class="menu-item">\n' +
                         '                                    <a href="#" class="delete-menu">\n' +
                         '                                        <i class="fa fa-times"></i>\n' +
                         '                                    </a>\n' +
