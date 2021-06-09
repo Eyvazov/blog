@@ -105,4 +105,8 @@ function permalink($str, $options = array())
     return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
 }
 
+function session($name){
+    return isset($_SESSION[$name]) ? $_SESSION[$name] : false;
+}
+
 ?>
