@@ -67,10 +67,19 @@
                     <a class="nav-link" href="#">İletişim</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0 mr-3">
                 <input class="form-control mr-sm-2" type="search" placeholder="<?= setting('search_placeholder')?>" aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Ara</button>
             </form>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Giriş Yap
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="<?= site_url('giris')?>">Giriş</a>
+                    <a class="dropdown-item" href="<?= site_url('qeydiyyat')?>">Qeydiyyatdan Keç</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
