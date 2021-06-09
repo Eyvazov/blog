@@ -43,29 +43,23 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Anasayfa</a>
+                <?php foreach (menu(4) as $key => $menu):?>
+                <li class="nav-item<?= isset($menu['submenu']) ? ' dropdown' : null?>">
+                    <?php if (isset($menu['submenu'])):?>
+                        <a class="nav-link dropdown-toggle" href="<?= $menu['url']?>" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?= $menu['title']?>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <?php foreach ($menu['submenu'] as $k => $submenu):?>
+                                <a class="dropdown-item" href="<?= $submenu['url']?>"><?= $submenu['title']?></a>
+                            <?php endforeach;?>
+                        </div>
+                    <?php else:?>
+                        <a class="nav-link" href="<?= $menu['url']?>"><?= $menu['title']?></a>
+                    <?php endif;?>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Referanslar
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Web Tasarım</a>
-                        <a class="dropdown-item" href="#">Web Yazılım</a>
-                        <a class="dropdown-item" href="#">Mobil Uygulama</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Hakkımda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">İletişim</a>
-                </li>
+                <?php endforeach;?>
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-3">
                 <input class="form-control mr-sm-2" type="search" placeholder="<?= setting('search_placeholder') ?>"

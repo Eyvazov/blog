@@ -25,6 +25,10 @@
         'settings' => [
             'title' => 'Tənzimləmələr',
             'icon' => 'cog'
+        ],
+        'menu' => [
+            'title' => 'Menyu',
+            'icon' => 'bars'
         ]
     ];
 

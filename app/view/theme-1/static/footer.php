@@ -28,33 +28,13 @@
                     <div class="col-12 col-md">
                         <h5>Sosyal Medya</h5>
                         <ul class="list-unstyled text-small">
-                            <?php if ($facebook = setting('facebook')):?>
+                            <?php foreach(menu(8) as $key => $menu) :?>
                             <li>
-                                <a class="text-muted" target="_blank" href="https://facebook.com/<?= $facebook?>">
-                                    <i class="fab fa-facebook-square"></i> <?= $facebook?>
+                                <a class="text-muted" target="_blank" href="<?= $menu['url']?>">
+                                    <?= htmlspecialchars_decode($menu['title'])?>
                                 </a>
                             </li>
-                            <?php endif;?>
-                            <?php if ($twitter = setting('twitter')):?>
-                            <li>
-                                <a class="text-muted" target="_blank" href="https://twitter.com/<?= $twitter?>">
-                                    <i class="fab fa-twitter-square"></i> <?= $twitter?>
-                                </a>
-                            </li>
-                            <?php endif;?>
-                            <?php if ($instagram = setting('instagram')):?>
-                            <li>
-                                <a class="text-muted" target="_blank" href="https://instagram.com/<?= $instagram?>">
-                                    <i class="fab fa-instagram"></i> <?= $instagram?>
-                                </a>
-                            </li>
-                            <?php endif;?>
-                            <?php if ($linkedin = setting('linkedin')):?>
-                            <li><a class="text-muted" target="_blank" href="https://linkedin.com/<?= $linkedin?>">
-                                    <i class="fab fa-linkedin"></i> <?= $linkedin?>
-                                </a>
-                            </li>
-                            <?php endif;?>
+                            <?php endforeach;?>
                         </ul>
                     </div>
                 </div>
