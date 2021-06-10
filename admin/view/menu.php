@@ -29,7 +29,7 @@
                     </td>
                     <td>
                         <a href="<?= admin_url('edit-menu?id=' . $row['menu_id'])?>" class="btn">Redaktə Et</a>
-                        <a href="<?= admin_url('delete?table=menu&column=menu_id&id=' . $row['menu_id'])?>" class="btn">Sil</a>
+                        <a onclick="return confirm('Silmək istədiyinizdən əminsiniz?')" href="<?= admin_url('delete?table=menu&column=menu_id&id=' . $row['menu_id'])?>" class="btn">Sil</a>
                     </td>
                 </tr>
             <?php endforeach;?>

@@ -17,10 +17,6 @@
         'users' => [
             'title' => 'İstifadəçilər',
             'icon' => 'user',
-            'sub-menu' =>[
-                'add-user' => 'İstifadəçi Əlavə Et',
-                'users' => 'İstifadəçilər'
-            ]
         ],
         'settings' => [
             'title' => 'Tənzimləmələr',
