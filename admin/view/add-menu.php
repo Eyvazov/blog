@@ -39,9 +39,10 @@
                     '                        <input type="text" name="title[]" placeholder="Menyu Adı">\n' +
                     '                        <input type="text" name="url[]" placeholder="Menyu Linki">\n' +
                     '                    </div>' +
-                    '<div class="sub-menu"><ul></ul></div>\n' +
+                    '<div class="sub-menu"><ul class="menu"></ul></div>\n' +
                     '                    <a href="#" class="add-submenu btn">Alt Menyu Əlavə Et</a>\n' +
                     '                </li>');
+                $('.menu').sortable();
                 e.preventDefault();
             });
 
