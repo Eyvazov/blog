@@ -1,4 +1,8 @@
 <?php
-    require admin_view('index');
+if (!permission('index', 'show')){
+    permission_page();
+}
 
+
+    require admin_view('index');
 ?>

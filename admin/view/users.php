@@ -15,6 +15,7 @@
                 <th>Ad Soyad</th>
                 <th>E-poçt</th>
                 <th>Qeydiyyat Tarixi</th>
+                <th>Rütbə</th>
                 <th>Əməliyyatlar</th>
             </tr>
             </thead>
@@ -33,8 +34,16 @@
                         <?= $row['user_date']?>
                     </td>
                     <td>
+                        <?= user_ranks($row['user_rank'])?>
+                    </td>
+                    <td>
+                    <?php if (permission('menu', 'edit')): ?>
                         <a href="<?= admin_url('edit-user?id=' . $row['user_id'])?>" class="btn">Redaktə Et</a>
+                    <?php endif;?>
+
+                    <?php if (permission('menu', 'delete')): ?>
                         <a onclick="return confirm('Silmək istədiyinizdən əminsiniz?')" href="<?= admin_url('delete?table=users&column=user_id&id=' . $row['user_id'])?>" class="btn">Sil</a>
+                    <?php endif;?>
                     </td>
                 </tr>
             <?php endforeach;?>

@@ -11,6 +11,13 @@
         }
     }
 
+//    function post_arr($name, $subname){
+//        $post = post($name);
+//        if (isset($post[$subname])){
+//            return $post[$subname];
+//        }
+//    }
+
     function get($name)
     {
         if (isset($_GET[$name])){

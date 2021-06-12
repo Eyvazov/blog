@@ -1,7 +1,7 @@
 <?php
 
-$settings["title"] = "Sat Basligi";
-$settings["description"] = "Aciqlama";
+$settings["title"] = "Sayt Başlığı";
+$settings["description"] = "Açıqlama";
 $settings["keywords"] = "acar sozler";
 $settings["author"] = "Azad Eyvazov";
 $settings["theme"] = "theme-1";

@@ -4,6 +4,11 @@
     $column = get('column');
     $id = get('id');
 
+    if (!permission($table, 'delete')){
+        permission_page();
+    }
+
+
     $query = $db->prepare('DELETE FROM ' . $table . ' WHERE ' . $column . ' = :id');
     $query->execute([
         'id' => $id

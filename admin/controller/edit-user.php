@@ -1,4 +1,8 @@
 <?php
+if (!permission('users', 'edit')){
+    permission_page();
+}
+
 $id = get('id');
 
 if (!$id){
@@ -15,9 +19,10 @@ if (!$row){
 
 
 if (post('submit')){
-    if ($data = form_control('user_email')){
+    if ($data = form_control('user_permissions')){
 
         $data['user_url'] = permalink($data['user_name']);
+        $data['user_permissions'] = json_encode($_POST['user_permissions']);
         $query = $db->update('users')->where('user_id', $id)->set($data);
 
         if ($query){
@@ -30,8 +35,7 @@ if (post('submit')){
     }
 }
 
+$permissions = json_decode($row['user_permissions'], true);
+
 require admin_view('edit-user');
-
-
-
 ?>

@@ -48,6 +48,8 @@
 </head>
 <body>
 
+<?php if (session('user_rank') && session('user_rank') != 3):?>
+
 <!--navbar-->
 <div class="navbar">
     <ul dropdown>
@@ -55,10 +57,16 @@
             <a href="#">
                 <span class="fa fa-home"></span>
                 <span class="title">
-                    ANOTHER WORDPRESS SITE
+                    <?= setting('title')?>
                 </span>
             </a>
         </li>
+        <li>
+            <a href="<?= admin_url('logout')?>">
+                Çıxış
+            </a>
+        </li>
+        <!--
         <li>
             <a href="#">
                 <span class="fa fa-comment"></span>
@@ -87,7 +95,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li>-->
     </ul>
 </div>
 
@@ -95,7 +103,7 @@
 <div class="sidebar">
 
     <ul>
-        <?php foreach ($menus as $mainUrl => $menu):?>
+        <?php foreach ($menus as $mainUrl => $menu): if (!permission($mainUrl, 'show')) continue;?>
         <li class="<?= (route(1) == $mainUrl) || isset($menu['sub-menu'][route(1)]) ? 'active' : null?>">
             <a href="<?= admin_url($mainUrl)?>">
                 <span class="fa fa-<?= $menu['icon']?>"></span>
@@ -136,4 +144,6 @@
     <div class="message error box-">
         <?= $error; ?>
     </div>
+    <?php endif;?>
+
     <?php endif;?>
