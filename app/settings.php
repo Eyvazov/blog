@@ -9,6 +9,13 @@ $settings["maintenance"] = "2";
 $settings["maintenance_title"] = "Saytda İş Gedir...";
 $settings["maintenance_desc"] = "Saytda hal-hazırda iş gedir.
 Bir müddət buralarda olmayacağıq)";
+$settings["smtp_host"] = "smtp.gmail.com";
+$settings["smtp_email"] = "saytest1999@gmail.com";
+$settings["smtp_password"] = "sayt123test";
+$settings["smtp_secure"] = "tls";
+$settings["smtp_port"] = "587";
+$settings["smtp_send_email"] = "saytest1999@gmail.com";
+$settings["smtp_send_name"] = "Azad Eyvazov";
 $settings["logo"] = "Azad Eyvazov";
 $settings["search_placeholder"] = "Axtar...";
 $settings["facebook"] = "azad.eyvazov.1";

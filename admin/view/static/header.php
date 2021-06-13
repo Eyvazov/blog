@@ -14,7 +14,11 @@
     <script src="<?= admin_public_url('scripts/jquery-1.12.2.min.js') ?>"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <!--<script src="https://cdn.ckeditor.com/4.5.7/basic/ckeditor.js"></script>-->
+    <script>
+        var api_url = '<?= admin_url('api')?>'
+    </script>
     <script src="<?= admin_public_url('scripts/admin.js')?>"></script>
+    <script src="<?= admin_public_url('scripts/api.js')?>"></script>
 
     <style>
         .menu-container .handle{

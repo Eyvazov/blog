@@ -71,6 +71,55 @@
                     </li>
             </ul>
 
+            <h1>SMTP Mail Tənzimləmələri</h1>
+            <ul>
+                <li>
+                    <label for="smtp_host">SMTP Host</label>
+                    <div class="form-content">
+                        <input type="text" id="smtp_host" name="settings[smtp_host]" value="<?= setting('smtp_host')?>">
+                    </div>
+                </li>
+                <li>
+                    <label for="smtp_email">SMTP E-poçt Ünvanı</label>
+                    <div class="form-content">
+                        <input type="text" id="smtp_email" name="settings[smtp_email]" value="<?= setting('smtp_email')?>">
+                    </div>
+                </li>
+                <li>
+                    <label for="smtp_password">SMTP E-poçt Şifrəsi</label>
+                    <div class="form-content">
+                        <input type="text" id="smtp_password" name="settings[smtp_password]" value="<?= setting('smtp_password')?>">
+                    </div>
+                </li>
+                <li>
+                    <label for="smtp_secure">SMTP Təhlükəsizlik</label>
+                    <div class="form-content">
+                        <select name="settings[smtp_secure]" id="smtp_secure">
+                            <option <?= setting('smtp_secure') == 'ssl' ? ' selected' : null ?> value="ssl">SSL</option>
+                            <option <?= setting('smtp_secure') == 'tls' ? ' selected' : null ?> value="tls">TLS</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <label for="smtp_port">SMTP Port</label>
+                    <div class="form-content">
+                        <input type="text" id="smtp_port" name="settings[smtp_port]" value="<?= setting('smtp_port')?>">
+                    </div>
+                </li>
+                <li>
+                    <label for="smtp_send_email">SMTP Göndərənin E-poçt Ünvanı</label>
+                    <div class="form-content">
+                        <input type="text" id="smtp_send_email" name="settings[smtp_send_email]" value="<?= setting('smtp_send_email')?>">
+                    </div>
+                </li>
+                <li>
+                    <label for="smtp_send_name">SMTP Göndərənin Ad Soyadı</label>
+                    <div class="form-content">
+                        <input type="text" id="smtp_send_name" name="settings[smtp_send_name]" value="<?= setting('smtp_send_name')?>">
+                    </div>
+                </li>
+            </ul>
+
             <h1>Şablon Tənzimləmələri</h1>
             <ul>
                 <li>
