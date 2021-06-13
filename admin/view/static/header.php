@@ -9,6 +9,7 @@
 
     <!--styles-->
     <link rel="stylesheet" href="<?= admin_public_url('styles/main.css')?>">
+    <link rel="stylesheet" href="<?= admin_public_url('styles/tab.css')?>">
 
     <!--scripts-->
     <script src="<?= admin_public_url('scripts/jquery-1.12.2.min.js') ?>"></script>
