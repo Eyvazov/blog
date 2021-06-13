@@ -32,6 +32,16 @@
                 'delete' => 'Silmək'
             ]
         ],
+        'contact' => [
+            'title' => 'Mesajlar',
+            'icon' => 'envelope',
+            'permissions' => [
+                'show' => 'Baxış',
+                'edit' => 'Redaktə',
+                'send' => 'Göndərmək',
+                'delete' => 'Silmək'
+            ]
+        ],
         'menu' => [
             'title' => 'Menyu',
             'icon' => 'bars',
