@@ -17,7 +17,8 @@
     <script src="<?= admin_public_url('tinymce/js/tinymce/tinymce.min.js')?>"></script>
     <!--<script src="https://cdn.ckeditor.com/4.5.7/basic/ckeditor.js"></script>-->
     <script>
-        var api_url = '<?= admin_url('api')?>'
+        var api_url = '<?= admin_url('api')?>',
+            app_url = '<?= site_url('app/')?>';
     </script>
     <script src="<?= admin_public_url('scripts/admin.js')?>"></script>
     <script src="<?= admin_public_url('scripts/api.js')?>"></script>

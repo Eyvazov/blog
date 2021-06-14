@@ -6,7 +6,7 @@
 $(function () {
 
     tinymce.init({
-        entity_encoding : "raw",
+        entity_encoding: "raw",
         width: 1000,
         selector: "textarea.editor",
         theme: "modern",
@@ -21,10 +21,14 @@ $(function () {
         toolbar2: "print preview media | forecolor backcolor emoticons | ltr rtl",
         image_advtab: true,
         templates: [
-            { title: 'Test template 1', content: 'Test 1' },
-            { title: 'Test template 2', content: 'Test 2' }
+            {title: 'Test template 1', content: 'Test 1'},
+            {title: 'Test template 2', content: 'Test 2'}
         ],
         images_upload_url: 'upload.php',
+        external_filemanager_path:app_url + "/3rd-party-apps/filemanager/",
+        filemanager_title: "Fayl İdarəçisi",
+        external_plugins: {"filemanager":app_url + "/3rd-party-apps/filemanager/plugin.min.js"},
+        filemanager_access_key:"blogin"
 
 
     });
@@ -47,6 +51,7 @@ $(function () {
         }
         e.preventDefault();
     });
+
     function checkToggle() {
         $.each(localStorage, function (key, val) {
             if (!key.indexOf('box_')) {
@@ -95,6 +100,7 @@ $(function () {
         }
         e.preventDefault();
     });
+
     function sidebarCheck() {
         if (localStorage.getItem('sidebar')) {
             $('.sidebar .collapse-menu').trigger('click');
@@ -109,12 +115,12 @@ $(function () {
 
     $('.menu').sortable({
         handle: '.handle',
-        update: function (event, ui){
-            $('#menu >li').each(function (){
+        update: function (event, ui) {
+            $('#menu >li').each(function () {
                 var subMenu = $('li', this);
-                if (subMenu.length){
+                if (subMenu.length) {
                     var index = $(this).index();
-                    subMenu.each(function (){
+                    subMenu.each(function () {
                         $('input:eq(0)', this).attr('name', 'sub_title_' + index + '[]');
                         $('input:eq(1)', this).attr('name', 'sub_url_' + index + '[]');
                     });
@@ -124,16 +130,16 @@ $(function () {
     });
 
 
-        $(function (){
-        $('[tab]').each(function (){
+    $(function () {
+        $('[tab]').each(function () {
             var tabList = $('[tab-list] li', this),
                 tabContent = $('[tab-content]', this);
             tabList.filter(':first').addClass('active');
             tabContent.filter(':not(:first)').hide();
-            tabList.on('click', function (){
+            tabList.on('click', function () {
                 var index = $(this).index();
                 tabList.removeClass('active').filter(this).addClass('active');
-                tabContent.hide().filter(':eq(' + index +')').fadeIn(300);
+                tabContent.hide().filter(':eq(' + index + ')').fadeIn(300);
                 e.preventDefault();
             });
         });
@@ -145,8 +151,8 @@ $(function () {
             postData += '&table=' + $(this).data('table');
             postData += '&where=' + $(this).data('where');
             postData += '&column=' + $(this).data('column');
-            $.post(api_url + '/table-sort', postData, function(response){
-                if (response.success){
+            $.post(api_url + '/table-sort', postData, function (response) {
+                if (response.success) {
                     $('.success-msg').show().find('>div').html(response.success);
                 }
             }, 'json');
