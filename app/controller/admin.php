@@ -42,6 +42,16 @@
                 'delete' => 'Silmək'
             ]
         ],
+        'categories' => [
+            'title' => 'Kateqoriyalar',
+            'icon' => 'folder',
+            'permissions' => [
+                'show' => 'Baxış',
+                'edit' => 'Redaktə',
+                'add' => 'Əlavə etmə',
+                'delete' => 'Silmək'
+            ]
+        ],
         'menu' => [
             'title' => 'Menyu',
             'icon' => 'bars',

@@ -4,7 +4,7 @@
         <h1>
             Menyu İdarə Etməsi
         <?php if (permission('menu', 'add')): ?>
-            <a href="<?= admin_url('add-menu') ?>">Yeni Menyu Əlavə Et</a>
+            <a href="<?= admin_url('add-menu') ?>"><i class="fa fa-plus"></i> Yeni Menyu Əlavə Et</a>
         <?php endif;?>
         </h1>
     </div>

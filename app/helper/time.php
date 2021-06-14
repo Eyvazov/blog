@@ -11,7 +11,7 @@ function timeConvert ( $zaman ){
     $yil = round($zaman_farki/29030400);
     if( $saniye < 60 ){
         if ($saniye == 0){
-            return "az önce";
+            return "İndicə";
         } else {
             return $saniye .' saniyə əvvəl';
         }

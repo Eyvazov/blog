@@ -31,17 +31,17 @@
                         <?= $row['user_email']?>
                     </td>
                     <td>
-                        <?= $row['user_date']?>
+                        <?= timeConvert($row['user_date'])?>
                     </td>
                     <td>
                         <?= user_ranks($row['user_rank'])?>
                     </td>
                     <td>
-                    <?php if (permission('menu', 'edit')): ?>
+                    <?php if (permission('users', 'edit')): ?>
                         <a href="<?= admin_url('edit-user?id=' . $row['user_id'])?>" class="btn">Redaktə Et</a>
                     <?php endif;?>
 
-                    <?php if (permission('menu', 'delete')): ?>
+                    <?php if (permission('users', 'delete')): ?>
                         <a onclick="return confirm('Silmək istədiyinizdən əminsiniz?')" href="<?= admin_url('delete?table=users&column=user_id&id=' . $row['user_id'])?>" class="btn">Sil</a>
                     <?php endif;?>
                     </td>
