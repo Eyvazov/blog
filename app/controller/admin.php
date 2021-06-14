@@ -52,6 +52,16 @@
                 'delete' => 'Silmək'
             ]
         ],
+        'pages' => [
+            'title' => 'Səhifələr',
+            'icon' => 'file',
+            'permissions' => [
+                'show' => 'Baxış',
+                'edit' => 'Redaktə',
+                'add' => 'Əlavə etmə',
+                'delete' => 'Silmək'
+            ]
+        ],
         'menu' => [
             'title' => 'Menyu',
             'icon' => 'bars',

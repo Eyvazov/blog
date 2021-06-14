@@ -18,7 +18,7 @@ if (post('submit')){
         $query = $db->from('categories')->where('category_url', $category_url)->first();
 
         if ($query){
-            $error = "<strong>' . $category_name . '</strong> adında kateqoriya hal hazırda mövcuddur. Başqa bir ad yoxlayın.";
+            $error = '<strong>' . $category_name . '</strong> adında kateqoriya hal hazırda mövcuddur. Başqa bir ad yoxlayın.';
         }else{
             $query = $db->insert('categories')->set([
                'category_name' => $category_name,

@@ -33,5 +33,14 @@
          return false;
     }
 
+    function cut_text($str, $limit = 200){
+        $str = strip_tags(htmlspecialchars_decode($str));
+        $lenght = strlen($str);
+        if ($lenght > $limit){
+            $str = mb_substr($str, 0, $limit, 'UTF8') . '..';
+        }
+        return $str;
+    }
+
 
 ?>

@@ -15,28 +15,28 @@
         <table>
             <thead>
             <tr>
-                <th>Menyu Başlığı</th>
-                <th class="hide">Əlavə Edilmə Tarixi</th>
-                <th>Əməliyyatlar</th>
+                <th style="text-align: center">Menyu Başlığı</th>
+                <th style="text-align: center" class="hide">Əlavə Edilmə Tarixi</th>
+                <th style="text-align: center">Əməliyyatlar</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($rows as $row): ?>
                 <tr>
-                    <td>
+                    <td style="text-align: center">
                         <?= $row['menu_title'] ?>
                     </td>
-                    <td>
-                        <?= $row['menu_date'] ?>
+                    <td style="text-align: center" title="<?= $row['menu_date'] ?>">
+                        <?= timeConvert($row['menu_date']) ?>
                     </td>
-                    <td>
+                    <td style="text-align: center">
                         <?php if (permission('menu', 'edit')): ?>
-                            <a href="<?= admin_url('edit-menu?id=' . $row['menu_id']) ?>" class="btn">Redaktə Et</a>
+                            <a href="<?= admin_url('edit-menu?id=' . $row['menu_id']) ?>" class="btn"><i class="fa fa-pencil"></i> Redaktə Et</a>
                         <?php endif; ?>
                             <?php if (permission('menu', 'delete')): ?>
                         <a onclick="return confirm('Silmək istədiyinizdən əminsiniz?')"
                            href="<?= admin_url('delete?table=menu&column=menu_id&id=' . $row['menu_id']) ?>"
-                           class="btn">Sil</a>
+                           class="btn"><i class="fa fa-trash"></i> Sil</a>
                             <?php endif; ?>
                     </td>
                 </tr>

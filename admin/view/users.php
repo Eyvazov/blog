@@ -12,37 +12,38 @@
         <table>
             <thead>
             <tr>
-                <th>Ad Soyad</th>
-                <th>E-poçt</th>
-                <th>Qeydiyyat Tarixi</th>
-                <th>Rütbə</th>
-                <th>Əməliyyatlar</th>
+                <th style="text-align: center">Ad Soyad</th>
+                <th style="text-align: center">E-poçt</th>
+                <th style="text-align: center">Qeydiyyat Tarixi</th>
+                <th style="text-align: center">Rütbə</th>
+                <th style="text-align: center">Əməliyyatlar</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($query as $row):?>
                 <tr>
-                    <td>
+                    <td style="text-align: center">
                         <a href="<?= admin_url('edit-user?id=' . $row['user_id'])?>" class="title">
                             <?= $row['user_name']?>
                         </a>
                     </td>
-                    <td>
+                    <td style="text-align: center">
                         <?= $row['user_email']?>
                     </td>
-                    <td>
+                    <td style="text-align: center">
                         <?= timeConvert($row['user_date'])?>
                     </td>
-                    <td>
+                    <td style="text-align: center">
                         <?= user_ranks($row['user_rank'])?>
                     </td>
-                    <td>
+                    <td style="text-align: center">
                     <?php if (permission('users', 'edit')): ?>
-                        <a href="<?= admin_url('edit-user?id=' . $row['user_id'])?>" class="btn">Redaktə Et</a>
+                        <a href="<?= admin_url('edit-user?id=' . $row['user_id'])?>" class="btn"><i class="fa fa-pencil"></i> Redaktə Et</a>
                     <?php endif;?>
 
                     <?php if (permission('users', 'delete')): ?>
-                        <a onclick="return confirm('Silmək istədiyinizdən əminsiniz?')" href="<?= admin_url('delete?table=users&column=user_id&id=' . $row['user_id'])?>" class="btn">Sil</a>
+                        <a onclick="return confirm('Silmək istədiyinizdən əminsiniz?')"
+                           href="<?= admin_url('delete?table=users&column=user_id&id=' . $row['user_id'])?>" class="btn"><i class="fa fa-trash"></i> Sil</a>
                     <?php endif;?>
                     </td>
                 </tr>
