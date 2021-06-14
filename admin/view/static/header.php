@@ -9,7 +9,7 @@
 
     <!--styles-->
     <link rel="stylesheet" href="<?= admin_public_url('styles/main.css')?>">
-    <link rel="stylesheet" href="<?= admin_public_url('styles/tab.css')?>">
+    <link rel="stylesheet" href="<?= admin_public_url('styles/extra.css')?>">
 
     <!--scripts-->
     <script src="<?= admin_public_url('scripts/jquery-1.12.2.min.js') ?>"></script>
@@ -21,37 +21,15 @@
     <script src="<?= admin_public_url('scripts/admin.js')?>"></script>
     <script src="<?= admin_public_url('scripts/api.js')?>"></script>
 
-    <style>
-        .menu-container .handle{
-            width: 30px;
-            height: 30px;
-            background-color: #ddd;
-            position: absolute;
-            text-align: center;
-            line-height: 30px;
-            top: 30px;
-            right: -30px;
-            cursor: move;
-        }
-        .menu-container .handle i{
-            color: #0085BA;
-        }
-        .menu-container form>ul li{
-            background-color: #f5f5f5;
-            overflow: inherit;
-        }
-        .menu-container form>ul li.ui-sortable-helper{
-            box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
-        }
-        .ui-sortable-placeholder{
-            background-color: #ddd!important;
-            visibility: visible!important;
-        }
-
-    </style>
-
 </head>
 <body>
+
+<div class="success-msg">
+    <a href="#" class="success-close-btn"><i class="fa fa-times"></i></a>
+    <div>
+        Sıralama əməliyyatı yerinə yetirildi.
+    </div>
+</div>
 
 <?php if (session('user_rank') && session('user_rank') != 3):?>
 

@@ -11,7 +11,7 @@ $totalRecord = $db->from('users')
 
 
 $query = $db->from('categories')
-    ->orderby('category_id', 'ASC')
+    ->orderby('category_order', 'ASC')
     ->all();
 
 

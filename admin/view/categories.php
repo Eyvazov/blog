@@ -20,9 +20,9 @@
                 <th>Əməliyyatlar</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="table-sortable" data-table="categories" data-where="category_id" data-column="category_order">
             <?php foreach ($query as $row):?>
-                <tr>
+                <tr id="id_<?=$row['category_id']?>">
                     <td>
                         <a href="<?= admin_url('edit-category?id=' . $row['category_id'])?>" class="title">
                             <?= $row['category_name']?>
@@ -45,5 +45,8 @@
             </tbody>
         </table>
     </div>
+    <script>
+
+    </script>
 
 <?php require admin_view('static/footer')?>
