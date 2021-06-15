@@ -8,7 +8,37 @@ $(function () {
     tinymce.init({
         entity_encoding: "raw",
         width: 1000,
+        height: 300,
         selector: "textarea.editor",
+        language: 'tr_TR',
+        theme: "modern",
+        plugins: [
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+            "code image",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern imagetools"
+        ],
+        toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image code",
+        toolbar2: "print preview media | forecolor backcolor emoticons | ltr rtl",
+        image_advtab: true,
+        templates: [
+            {title: 'Test template 1', content: 'Test 1'},
+            {title: 'Test template 2', content: 'Test 2'}
+        ],
+        images_upload_url: 'upload.php',
+        external_filemanager_path:app_url + "/3rd-party-apps/filemanager/",
+        filemanager_title: "Fayl İdarəçisi",
+        external_plugins: {"filemanager":app_url + "/3rd-party-apps/filemanager/plugin.min.js"},
+        filemanager_access_key:"blogin"
+
+
+    });    tinymce.init({
+        entity_encoding: "raw",
+        width: 1000,
+        height: 120,
+        selector: "textarea.editor-short",
+        language: 'tr_TR',
         theme: "modern",
         plugins: [
             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -162,6 +192,12 @@ $(function () {
     $('.success-close-btn').on('click', function (e) {
         $(this).parent().hide();
         e.preventDefault();
+    });
+
+    $('.tagsinput').tagsInput({
+        'autocomplete': {
+            source: tags;
+        }
     });
 
 });

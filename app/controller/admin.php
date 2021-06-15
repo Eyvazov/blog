@@ -42,6 +42,16 @@
                 'delete' => 'Silmək'
             ]
         ],
+        'posts' => [
+            'title' => 'Məqalələr',
+            'icon' => 'rss',
+            'permissions' => [
+                'show' => 'Baxış',
+                'edit' => 'Redaktə',
+                'add' => 'Əlavə etmə',
+                'delete' => 'Silmək'
+            ]
+        ],
         'categories' => [
             'title' => 'Kateqoriyalar',
             'icon' => 'folder',
