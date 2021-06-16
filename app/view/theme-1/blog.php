@@ -1,10 +1,10 @@
 <?php require view('static/header') ?>
     <section class="jumbotron text-center">
         <div class="container">
-            <h1>BLOG</h1>
+            <h1>BLOQ</h1>
             <div class="breadcrumb-custom">
-                <a href="#">Anasayfa</a> /
-                <a href="#" class="active">Blog</a>
+                <a href="<?= site_url()?>">Əsas Səhifə</a> /
+                <a href="<?= site_url('blog/' . $row['post_url'])?>" class="active">Blog</a>
             </div>
         </div>
     </section>
@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-8">
 
-            <h4 class="pb-3">Son Konular</h4>
+            <h4 class="pb-3">Son Məqalələr</h4>
 
             <?php if ($query): ?>
 
