@@ -66,17 +66,9 @@
                         <li>
                             <label for="post_tags">Məqalə Etiketləri</label>
                             <div class="form-content">
-                                <textarea name="post_tags" id="post_tags" cols="30" rows="3"><?php
-                                    if (post('post_tags')){
-                                        echo post('post_tags');
-                                    } else {
-                                        $tagsHtml = '';
-                                        foreach ($tags as $tag){
-                                            $tagsHtml .= $tag['tag_name'] . "\n";
-                                        }
-                                        echo rtrim($tagsHtml, "\n");
-                                    }
-                                    ?></textarea>
+                                <input type="text" name="post_tags" class="tagsinput" value="<?=
+                                post('post_tags') ? post('post_tags') : implode(',', $postTags);
+                                ?>">
                                 <p>2 və ya daha çox etiket əlavə eləmək istəyirsizsə, etiketlər alt-alta yazın.</p>
                             </div>
                         </li>
@@ -117,5 +109,10 @@
             </div>
         </form>
     </div>
+
+    <script>
+        var tags =['<?= implode("','", $tagsArr)?>']
+    </script>
+
 
 <?php require admin_view('static/footer') ?>

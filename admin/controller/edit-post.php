@@ -22,6 +22,27 @@ $categories = $db->from('categories')
     ->orderby('category_name', 'ASC')
     ->all();
 
+$allTags = $db->from('tags')
+    ->orderBy('tag_id', 'DESC')
+    ->all();
+
+$tagsArr = [];
+foreach ($allTags as $allTag){
+    $tagsArr[] = trim(htmlspecialchars($allTag['tag_name']));
+};
+
+// etiketler
+$tags = $db->from('post_tags')
+    ->join('tags', '%s.tag_id = %s.tag_id')
+    ->where('tag_post_id', $id)
+    ->all();
+
+$postTags = [];
+foreach ($tags as $tag){
+    $postTags[] = trim($tag['tag_name']);
+}
+
+
 if (post('submit')){
 
     $post_title = post('post_title');
@@ -66,7 +87,7 @@ if (post('submit')){
 
                 $postID = $id;
 
-                $post_tags = explode("\n", $post_tags);
+                $post_tags = array_map('trim', explode(",", $post_tags));
                 foreach ($post_tags as $tag){
 
                     $row = $db->from('tags')
@@ -101,6 +122,20 @@ if (post('submit')){
 
                 }
 
+                $diffs = array_diff($postTags, $post_tags);
+                if (count($diffs) > 0){
+                    foreach ($diffs as $diff) {
+                        foreach ($allTags as $allTag) {
+                            if (trim($allTag['tag_name']) == $diff){
+                                $db->delete('post_tags')
+                                    ->where('tag_id', $allTag['tag_id'])
+                                    ->where('tag_post_id', $id)
+                                ->done();
+                            }
+                        }
+                    }
+                }
+
                 header('Location:' . admin_url('posts'));
 
             } else {
@@ -115,11 +150,7 @@ if (post('submit')){
 
 }
 
-// etiketler
-$tags = $db->from('post_tags')
-    ->join('tags', '%s.tag_id = %s.tag_id')
-    ->where('tag_post_id', $id)
-    ->all();
+
 
 $seo = json_decode($row['post_seo'], true);
 

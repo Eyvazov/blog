@@ -195,8 +195,9 @@ $(function () {
     });
 
     $('.tagsinput').tagsInput({
+        placeholder: 'Etiket Əlavə Et',
         'autocomplete': {
-            source: tags;
+            source: tags
         }
     });
 

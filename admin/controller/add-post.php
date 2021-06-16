@@ -4,7 +4,9 @@ if (!permission('posts', 'add')){
     permission_page();
 }
 
-$categories = $db->from('categories')->orderBy('category_name', 'ASC')->all();
+$categories = $db->from('categories')
+    ->orderBy('category_name', 'ASC')
+    ->all();
 
 $allTags = $db->from('tags')
     ->orderBy('tag_id', 'DESC')
@@ -12,7 +14,7 @@ $allTags = $db->from('tags')
 
 $tagsArr = [];
 foreach ($allTags as $allTag){
-    $tagsArr[] = $allTags;
+    $tagsArr[] = trim(htmlspecialchars($allTag['tag_name']));
 };
 
 
@@ -53,7 +55,7 @@ if (post('submit')){
 
                 $postId = $db->lastId();
 
-                $post_tags = explode("\n", $post_tags);
+                $post_tags = explode(",", $post_tags);
                 foreach ($post_tags as $tag) {
                     $row = $db->from('tags')
                         ->where('tag_url', permalink($tag))

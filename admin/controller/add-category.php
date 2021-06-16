@@ -4,6 +4,15 @@ if (!permission('categories', 'add')){
     permission_page();
 }
 
+$allTags = $db->from('tags')
+    ->orderBy('tag_id', 'DESC')
+    ->all();
+
+$tagsArr = [];
+foreach ($allTags as $allTag){
+    $tagsArr[] = trim(htmlspecialchars($allTag['tag_name']));
+};
+
 if (post('submit')){
     $category_name = post('category_name');
     $category_url = permalink(post('category_url'));

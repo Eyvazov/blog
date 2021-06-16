@@ -68,4 +68,8 @@
         </form>
     </div>
 
+    <script>
+        var tags =['<?= implode("','", $tagsArr)?>']
+    </script>
+
 <?php require admin_view('static/footer') ?>
