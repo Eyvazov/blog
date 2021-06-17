@@ -3,6 +3,15 @@
 if (!permission('categories', 'edit')){
     permission_page();
 }
+$allTags = $db->from('tags')
+    ->orderBy('tag_id', 'DESC')
+    ->all();
+
+$tagsArr = [];
+foreach ($allTags as $allTag){
+    $tagsArr[] = trim(htmlspecialchars($allTag['tag_name']));
+};
+
 
 $id = get('id');
 if (!$id){
