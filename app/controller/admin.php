@@ -62,6 +62,16 @@
                 'delete' => 'Silmək'
             ]
         ],
+        'comments' => [
+            'title' => 'Rəylər',
+            'icon' => 'comments',
+            'permissions' => [
+                'show' => 'Baxış',
+                'edit' => 'Redaktə',
+                'add' => 'Əlavə etmə',
+                'delete' => 'Silmək'
+            ]
+        ],
         'pages' => [
             'title' => 'Səhifələr',
             'icon' => 'file',

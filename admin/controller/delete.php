@@ -17,6 +17,9 @@
         $db->delete('post_tags')
             ->where('tag_post_id', $id)
             ->done();
+        $db->delete('comments')
+            ->where('comment_post_id', $id)
+            ->done();
     }
 
     header('Location:' . $_SERVER['HTTP_REFERER']);
