@@ -25,4 +25,13 @@ class Blog {
             ->first();
     }
 
+    public static function findPostByID($post_id)
+    {
+        global $db;
+        return $db->from('posts')
+            ->where('post_id', $post_id)
+            ->where('post_status', 1)
+            ->first();
+    }
+
 }

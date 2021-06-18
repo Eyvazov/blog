@@ -21,6 +21,9 @@
                     <a href="#">SMTP Mail</a>
                 </li>
                 <li>
+                    <a href="#">Rəy </a>
+                </li>
+                <li>
                     <a href="#">Şablon </a>
                 </li>
             </ul>
@@ -153,7 +156,29 @@
                         </li>
                     </ul>
                 </div>
+                <div tab-content>
+                    <ul>
+                        <li>
+                            <label for="visitor_comment">Qonaq Rəyi</label>
+                            <div class="form-content">
+                                <select name="settings[visitor_comment]" id="visitor_comment">
+                                    <option value="1" <?= setting('visitor_comment') == 1 ? ' selected' : null ?>>Qəbul Edilib</option>
+                                    <option value="2" <?= setting('visitor_comment') == 2 ? ' selected' : null ?>>Qəbul Edilməyib</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="user_comment">İstifadəçi Rəyi</label>
+                            <div class="form-content">
+                                <select name="settings[user_comment]" id="user_comment">
+                                    <option value="1" <?= setting('user_comment') == 1 ? ' selected' : null ?>>Qəbul Edilib</option>
+                                    <option value="2" <?= setting('user_comment') == 2 ? ' selected' : null ?>>Qəbul Edilməyib</option>
+                                </select>
+                            </div>
+                        </li>
 
+                    </ul>
+                </div>
                 <div tab-content>
                     <ul>
                         <li>

@@ -13,4 +13,12 @@ $meta = [
     'description' => $seo['description'] ? $seo['description'] : cut_text($row['post_short_content'])
 ];
 
+// Rəyləri siyahıla
+
+$comments = $db->from('comments')
+    ->where('comment_post_id', $row['post_id'])
+    ->where('comment_status', 1)
+    ->orderby('comment_id', 'ASC')
+    ->all();
+
 require view('blog-detail');

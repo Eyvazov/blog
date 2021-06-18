@@ -4,7 +4,14 @@ if (!permission('settings', 'show')){
     permission_page();
 }
 
+$allTags = $db->from('tags')
+    ->orderBy('tag_id', 'DESC')
+    ->all();
 
+$tagsArr = [];
+foreach ($allTags as $allTag){
+    $tagsArr[] = trim(htmlspecialchars($allTag['tag_name']));
+};
 
 $themes = [];
 
