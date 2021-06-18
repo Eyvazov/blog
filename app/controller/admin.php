@@ -52,6 +52,16 @@
                 'delete' => 'Silmək'
             ]
         ],
+        'tags' => [
+            'title' => 'Etiketlər',
+            'icon' => 'tag',
+            'permissions' => [
+                'show' => 'Baxış',
+                'edit' => 'Redaktə',
+                'add' => 'Əlavə etmə',
+                'delete' => 'Silmək'
+            ]
+        ],
         'categories' => [
             'title' => 'Kateqoriyalar',
             'icon' => 'folder',

@@ -52,7 +52,7 @@ if (post('submit')){
     }
     $post_content = post('post_content');
     $post_short_content = post('post_short_content');
-    $post_categories = implode(',', post('post_categories'));
+    $post_categories = post('post_categories');
     $post_status = post('post_status');
     $post_tags = post('post_tags');
     $post_seo = json_encode(post('post_seo'));
@@ -61,14 +61,15 @@ if (post('submit')){
         $error = 'Xahiş edirik bütün sahələri doldurun.';
     } else {
 
-        // konu var mı kontrol et
+        $post_categories = implode(',', $post_categories);
+
         $query = $db->from('posts')
             ->where('post_url', $post_url)
             ->where('post_id', $id, '!=')
             ->first();
 
         if ($query){
-            $error = '<strong>' . $post_title . '</strong> adında məqalı var. Xahiş edirik başqa ad yoxlayın.';
+            $error = '<strong>' . $post_title . '</strong> adında məqalə var. Xahiş edirik başqa ad yoxlayın.';
         } else {
 
             $query = $db->update('posts')
@@ -88,6 +89,8 @@ if (post('submit')){
                 $postID = $id;
 
                 $post_tags = array_map('trim', explode(",", $post_tags));
+                $post_tags = array_filter($post_tags);
+                if (count($post_tags) > 0){
                 foreach ($post_tags as $tag){
 
                     $row = $db->from('tags')
@@ -120,6 +123,7 @@ if (post('submit')){
 
                     }
 
+                }
                 }
 
                 $diffs = array_diff($postTags, $post_tags);

@@ -14,12 +14,22 @@
 
 
     if ($table == 'posts'){
-        $db->delete('post_tags')
-            ->where('tag_post_id', $id)
-            ->done();
-        $db->delete('comments')
-            ->where('comment_post_id', $id)
-            ->done();
+        if ($query){
+            $db->delete('post_tags')
+                ->where('tag_post_id', $id)
+                ->done();
+            $db->delete('comments')
+                ->where('comment_post_id', $id)
+                ->done();
+        }
+    }
+
+    if ($table == 'tags'){
+        if ($query){
+            $db->delete('post_tags')
+                ->where('tag_id', $id)
+                ->done();
+        }
     }
 
     header('Location:' . $_SERVER['HTTP_REFERER']);

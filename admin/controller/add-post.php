@@ -26,7 +26,7 @@ if (post('submit')){
     }
     $post_content = post('post_content');
     $post_short_content = post('post_short_content');
-    $post_categories = implode(',', post('post_categories'));
+    $post_categories = post('post_categories');
     $post_status = post('post_status');
     $post_tags = post('post_tags');
     $post_seo = json_encode(post('post_seo'));
@@ -34,6 +34,8 @@ if (post('submit')){
     if (!$post_url || !$post_content || !$post_status || !$post_categories ){
         $error = "Xahiş edirik bütün sahələri doldurun!";
     }else{
+        $post_categories = implode(',', $post_categories);
+        $post_tags = array_filter($post_tags);
         $query = $db->from('posts')
             ->where('post_url', $post_url)
             ->first();
@@ -55,7 +57,8 @@ if (post('submit')){
 
                 $postId = $db->lastId();
 
-                $post_tags = explode(",", $post_tags);
+                $post_tags = array_map('trim', explode(",", $post_tags));
+                if (count($post_tags) > 0){
                 foreach ($post_tags as $tag) {
                     $row = $db->from('tags')
                         ->where('tag_url', permalink($tag))
@@ -83,6 +86,7 @@ if (post('submit')){
                                 'tag_id' => $tagId
                         ]);
                     }
+                }
                 }
                 header('Location:' . admin_url('posts'));
             }else{
