@@ -30,7 +30,7 @@
                         <ul class="list-unstyled text-small">
                             <?php foreach(menu(8) as $key => $menu) :?>
                             <li>
-                                <a class="text-muted" target="_blank" href="<?= $menu['url']?>">
+                                <a class="text-muted" target="_blank" href="<?= menu_url($menu['url'])?>">
                                     <?= htmlspecialchars_decode($menu['title'])?>
                                 </a>
                             </li>

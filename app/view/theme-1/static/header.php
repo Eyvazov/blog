@@ -48,17 +48,17 @@
                 <?php foreach (menu(4) as $key => $menu):?>
                 <li class="nav-item<?= isset($menu['submenu']) ? ' dropdown' : null?>">
                     <?php if (isset($menu['submenu'])):?>
-                        <a class="nav-link dropdown-toggle" href="<?= $menu['url']?>" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="<?= menu_url($menu['url'])?>" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?= $menu['title']?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php foreach ($menu['submenu'] as $k => $submenu):?>
-                                <a class="dropdown-item" href="<?= $submenu['url']?>"><?= $submenu['title']?></a>
+                                <a class="dropdown-item" href="<?= menu_url($submenu['url'])?>"><?= $submenu['title']?></a>
                             <?php endforeach;?>
                         </div>
                     <?php else:?>
-                        <a class="nav-link" href="<?= $menu['url']?>"><?= $menu['title']?></a>
+                        <a class="nav-link" href="<?= menu_url($menu['url'])?>"><?= $menu['title']?></a>
                     <?php endif;?>
                 </li>
                 <?php endforeach;?>
@@ -66,7 +66,7 @@
             <form class="form-inline my-2 my-lg-0 mr-3">
                 <input class="form-control mr-sm-2" type="search" placeholder="<?= setting('search_placeholder') ?>"
                        aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Ara</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Axtar</button>
             </form>
             <?php if (session('user_id')): ?>
                 <div class="dropdown">

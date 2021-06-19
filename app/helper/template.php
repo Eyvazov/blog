@@ -42,5 +42,12 @@
         return $str;
     }
 
+    function menu_url($url){
+        if (!strstr($url, 'http')) {
+            $url = site_url($url);
+        }
+        return $url;
+    }
+
 
 ?>

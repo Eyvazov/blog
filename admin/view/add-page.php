@@ -45,7 +45,7 @@
                             <div class="form-content">
                                 <input type="text" id="page_url" name="page_url"
                                        value="<?= post('page_url') ?>"/>
-                                <p>Əgər bu hissəni boş buraxsanız avtomatik olaraq kateqoriyanın adını nümunə
+                                <p>Əgər bu hissəni boş buraxsanız avtomatik olaraq səhifənin adını nümunə
                                     götürəcəkdir.</p>
                             </div>
                         </li>
