@@ -3,7 +3,7 @@
 
     $routeExplode = explode('?',  $_SERVER['REQUEST_URI']);
     $route = array_filter(explode('/', $routeExplode[0]));
-    if (SUBFOLDER_NAME){
+    if (SUBFOLDER === true){
         array_shift($route);
     }
 

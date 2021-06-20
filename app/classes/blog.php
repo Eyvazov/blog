@@ -22,6 +22,7 @@ class Blog {
             ->join('categories', 'find_in_set(category_id, post_categories)')
             ->where('post_url', $post_url)
             ->where('post_status', 1)
+            ->groupby('post_id')
             ->first();
     }
 

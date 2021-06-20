@@ -26,6 +26,9 @@
                 <li>
                     <a href="#">Şablon </a>
                 </li>
+                <li>
+                    <a href="#">Səhifələmə </a>
+                </li>
             </ul>
         </div>
         <form action="" method="POST" class="form label">
@@ -67,6 +70,30 @@
                                                 value="<?= $theme ?>"><?= $theme ?></option>
                                     <?php endforeach; ?>
                                 </select>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="blog_search_title">Bloq Axtarış Başlığı</label>
+                            <div class="form-content">
+                                <input type="text" id="blog_search_title" name="settings[blog_search_title]" value="<?= setting('blog_search_title') ?>">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="blog_search_description">Bloq Axtarış Açıqlaması</label>
+                            <div class="form-content">
+                                <input type="text" id="blog_search_description" name="settings[blog_search_description]" value="<?= setting('blog_search_description') ?>">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="blog_title">Bloq Başlığı</label>
+                            <div class="form-content">
+                                <input type="text" id="blog_title" name="settings[blog_title]" value="<?= setting('blog_title') ?>">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="blog_description">Bloq Açıqlaması</label>
+                            <div class="form-content">
+                                <input type="text" id="blog_description" name="settings[blog_description]" value="<?= setting('blog_description') ?>">
                             </div>
                         </li>
                     </ul>
@@ -240,6 +267,28 @@
                             <div class="form-content">
                         <textarea name="settings[welcome_text]"
                                   id="welcome_text"><?= setting('welcome_text') ?></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div tab-content>
+                    <ul>
+                        <li>
+                            <label for="blog_pagination">Bloq Səhifələməsi</label>
+                            <div class="form-content">
+                                <input type="number" id="blog_pagination" name="settings[blog_pagination]" value="<?= setting('blog_pagination') ?>">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="blog_pagination">Kateqoriya Səhifələməsi</label>
+                            <div class="form-content">
+                                <input type="number" id="category_pagination" name="settings[category_pagination]" value="<?= setting('category_pagination') ?>">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="search_pagination">Axtarış Səhifələməsi</label>
+                            <div class="form-content">
+                                <input type="number" id="search_pagination" name="settings[search_pagination]" value="<?= setting('search_pagination') ?>">
                             </div>
                         </li>
                     </ul>

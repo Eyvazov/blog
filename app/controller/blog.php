@@ -2,6 +2,8 @@
 
 if (route(1) == 'kateqoriya') {
     require controller('blog-category');
+} elseif (route(1) == 'axtar'){
+    require controller('blog-search');
 } else {
     if ($post_url = route(1)) {
 
@@ -10,20 +12,16 @@ if (route(1) == 'kateqoriya') {
     } else {
 
         $meta = [
-            'title' => setting('title'),
-            'description' => setting('description'),
-            'keywords' => setting('keywords'),
-            'author' => setting('author')
+            'title' => setting('blog_title'),
+            'description' => setting('blog_description'),
         ];
 
         $totalRecord = $db->from('posts')
             ->where('post_status', 1)
-            ->groupBy('posts.post_id')
-            ->join('categories', 'FIND_IN_SET(categories.category_id, posts.post_categories)')
             ->select('count(post_id) as total')
             ->total();
 
-        $pageLimit = 10;
+        $pageLimit = setting('blog_pagination');
         $pageParam = 'page';
         $pagination = $db->pagination($totalRecord, $pageLimit, $pageParam);
 
@@ -40,6 +38,7 @@ if (route(1) == 'kateqoriya') {
         require view('blog');
     }
 }
+
 
 
 ?>

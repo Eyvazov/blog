@@ -63,8 +63,8 @@
                 </li>
                 <?php endforeach;?>
             </ul>
-            <form class="form-inline my-2 my-lg-0 mr-3">
-                <input class="form-control mr-sm-2" type="search" placeholder="<?= setting('search_placeholder') ?>"
+            <form action="<?= site_url('blog/axtar')?>" method="GET" class="form-inline my-2 my-lg-0 mr-3">
+                <input class="form-control mr-sm-2" name="s" type="search" value="<?= get('s') ? get('s') : null;?>" placeholder="<?= setting('search_placeholder') ?>"
                        aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Axtar</button>
             </form>
@@ -76,6 +76,9 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="<?= site_url('profil') ?>">Profil</a>
+                        <?php if (session('user_rank') == 1):?>
+                            <a target="_blank" class="dropdown-item" href="<?= admin_url() ?>">İdarəetmə Paneli</a>
+                        <?php endif;?>
                         <a class="dropdown-item" href="<?= site_url('cixis') ?>">Çıxış</a>
                     </div>
                 </div>

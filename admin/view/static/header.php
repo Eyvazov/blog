@@ -50,40 +50,42 @@
             </a>
         </li>
         <li>
-            <a href="<?= admin_url('logout')?>">
-                Çıxış
-            </a>
-        </li>
-        <!--
-        <li>
-            <a href="#">
+            <a href="<?= admin_url('comments')?>">
                 <span class="fa fa-comment"></span>
-                1
             </a>
         </li>
         <li>
             <a href="#">
                 <span class="fa fa-plus"></span>
-                <span class="title">New</span>
+                <span class="title">Yeni</span>
             </a>
             <ul>
                 <li>
-                    <a href="#">
-                        New Post
+                    <a href="<?= admin_url('add-post')?>">
+                        Yeni Məqalə
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        New Page
+                    <a href="<?= admin_url('add-page')?>">
+                        Yeni Səhifə
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        New Category
+                    <a href="<?= admin_url('add-category')?>">
+                        Yeni Kateqoriya
                     </a>
                 </li>
             </ul>
-        </li>-->
+        <li>
+            <a href="#">
+                İstifadəçi (<strong><?= session('user_name')?></strong>)
+            </a>
+        </li>
+        <li>
+            <a href="<?= admin_url('logout')?>">
+                Çıxış
+            </a>
+        </li>
     </ul>
 </div>
 
