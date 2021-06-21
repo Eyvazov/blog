@@ -32,5 +32,6 @@ $settings["footer_about"] = "Bu mənim haqqımda yazımdır";
 $settings["welcome_title"] = "Xoş Gəldin Gözəl İnsan)";
 $settings["welcome_text"] = "Bu veb saytın altında proqramla əlaqəli məqalələr, gündəlik həyat təcrübələri və bəzi musiqi ilə bağlı tövsiyələr tapa bilərsiniz. Bir sözlə, şəxsi bloqunuza xoş gəlmisiniz, zövq alın!";
 $settings["blog_pagination"] = "1";
-$settings["category_pagination"] = "10";
+$settings["category_pagination"] = "1";
+$settings["tag_pagination"] = "10";
 $settings["search_pagination"] = "10";

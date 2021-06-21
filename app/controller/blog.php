@@ -4,6 +4,8 @@ if (route(1) == 'kateqoriya') {
     require controller('blog-category');
 } elseif (route(1) == 'axtar'){
     require controller('blog-search');
+} elseif (route(1) == 'etiket'){
+    require controller('blog-tag');
 } else {
     if ($post_url = route(1)) {
 

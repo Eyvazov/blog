@@ -1,6 +1,7 @@
 <?php
 
-class Blog {
+class Blog
+{
 
     public static function Categories()
     {
@@ -33,6 +34,15 @@ class Blog {
             ->where('post_id', $post_id)
             ->where('post_status', 1)
             ->first();
+    }
+
+    public static function getRandomTags($limit = 10)
+    {
+        global $db;
+        return $db->from('tags')
+            ->orderBy('', 'rand()')
+            ->limit(0, $limit)
+            ->all();
     }
 
 }

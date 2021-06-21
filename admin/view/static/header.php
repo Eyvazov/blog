@@ -93,20 +93,20 @@
 <div class="sidebar">
 
     <ul>
-        <?php foreach ($menus as $mainUrl => $menu): if (!permission($mainUrl, 'show')) continue;?>
-        <li class="<?= (route(1) == $mainUrl) || isset($menu['sub-menu'][route(1)]) ? 'active' : null?>">
-            <a href="<?= admin_url($mainUrl)?>">
+        <?php foreach ($menus as $mainUrl => $menu): if (!permission($menu['url'], 'show')) continue;?>
+        <li class="<?= (route(1) == $menu['url']) || (isset($menu['submenu']) && array_search(route(1), array_column($menu['submenu'], 'url'))) ? 'active' : null?>">
+            <a href="<?= admin_url($menu['url'])?>">
                 <span class="fa fa-<?= $menu['icon']?>"></span>
                 <span class="title">
                     <?= $menu['title']?>
                 </span>
             </a>
-            <?php if (isset($menu['sub-menu'])):?>
+            <?php if (isset($menu['submenu'])):?>
             <ul class="sub-menu">
-                <?php foreach ($menu['sub-menu'] as $url => $title):?>
-                <li>
-                    <a href="<?= admin_url($url)?>">
-                        <?= $title?>
+                <?php foreach ($menu['submenu'] as $k => $submenu):?>
+                <li class="<?= route(1) == $submenu['url'] ? ' active' : null;?>">
+                    <a href="<?= admin_url($submenu['url'])?>">
+                        <?= $submenu['title']?>
                     </a>
                 </li>
                 <?php endforeach;?>

@@ -286,6 +286,12 @@
                             </div>
                         </li>
                         <li>
+                            <label for="blog_pagination">Etiket Səhifələməsi</label>
+                            <div class="form-content">
+                                <input type="number" id="tag_pagination" name="settings[tag_pagination]" value="<?= setting('tag_pagination') ?>">
+                            </div>
+                        </li>
+                        <li>
                             <label for="search_pagination">Axtarış Səhifələməsi</label>
                             <div class="form-content">
                                 <input type="number" id="search_pagination" name="settings[search_pagination]" value="<?= setting('search_pagination') ?>">
